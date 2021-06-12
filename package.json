@@ -27,7 +27,11 @@
       "node": true
     },
     "extends": [
+<<<<<<< HEAD
       "plugin:vue/essential",
+=======
+      "plugin:vue/vue3-essential",
+>>>>>>> a31dfbb638093f543dc376033d29459d3d727824
       "eslint:recommended"
     ],
     "parserOptions": {
