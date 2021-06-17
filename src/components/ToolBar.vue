@@ -1,7 +1,7 @@
 <template>
   <md-toolbar
     id="toolbar"
-    class="md-medium md-absolute accent"
+    class="md-medium md-absolute"
     md-elevation="3"
   >
     <h3 class="md-title">
@@ -42,6 +42,7 @@ export default {
 #toolbar {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  background-color: rgba(0,0,255,0.5) !important;
 }
 #toolbar > h3 {
   text-align: center;
@@ -66,7 +67,7 @@ export default {
 <style lang="sass">
 @import "~vue-material/dist/theme/engine"
 
-@include md-register-theme("default", (accent: md-get-palette-color(black, 500), theme: dark))
+@include md-register-theme("default", (primary: md-get-palette-color(black, A200), theme: dark))
 
 @import "~vue-material/dist/theme/all"
 </style>
