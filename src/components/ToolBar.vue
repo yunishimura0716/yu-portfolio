@@ -4,7 +4,17 @@
     class="md-medium md-absolute"
     md-elevation="3"
   >
-    <h3 class="md-title">
+    <h3
+      class="md-title"
+      v-wave="{
+        color: 'currentColor',
+        easing: 'ease-out',
+        duration: 0.4,
+        initialOpacity: 0.2,
+        finalOpacity: 0.1,
+        cancellationPeriod: 75
+      }"
+    >
       Yu Portfolio
     </h3>
     <div class="md-collapse">
@@ -12,8 +22,15 @@
         <md-list-item
           v-for="(content) in buttonContents"
           :key="content"
-        >
-          <p>{{ content }}</p>
+          v-wave="{
+            color: 'currentColor',
+            easing: 'ease-out',
+            duration: 0.4,
+            initialOpacity: 0.2,
+            finalOpacity: 0.1,
+            cancellationPeriod: 75
+          }"
+        >{{ content }}
         </md-list-item>
       </div>
     </div>
@@ -49,6 +66,8 @@ export default {
   grid-column: 1 / 3;
   margin-right: auto;
   margin-left: auto;
+  cursor: pointer;
+  cursor: hand;
 }
 #toolbar > .md-collapse {
   text-align: center;
@@ -62,6 +81,20 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+
+.md-list-item {
+  cursor: pointer;
+  cursor: hand;
+}
+md-list-item {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+md-list-item > p {
+
+}
+
 </style>
 
 <style lang="sass">
