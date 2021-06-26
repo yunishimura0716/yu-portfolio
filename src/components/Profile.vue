@@ -3,7 +3,7 @@
       id="yunishimura"
       class="wrapper"
   >
-    <parallax
+    <div
         class="page-header header-filter"
         :style="headerStyle"
     >
@@ -12,20 +12,18 @@
           <a href="#">
             <img alt="Raised Image" class="img-raised rounded" :src="faceImage">
           </a>
-          <div id="profile-text" @scroll="scrollProfile">
+          <div id="profile-text">
             <div id="scroll-item">
-              <transition>
-                <div id="profile-text-name" v-show="visible1" @click="gotoIntro">
+              <transition mode="out-in">
+                <div id="profile-text-name" v-if="visible" @click="changeProfile" key="name">
                   <h1>Yu Nishimura</h1>
-                  <h2 v-show="visible1">Who am I ...?</h2>
+                  <h2>Who I am ...</h2>
                   <div class="cp_arrows">
                     <div class="cp_arrow cp_arrowfirst"></div>
                     <div class="cp_arrow cp_arrowsecond"></div>
                   </div>
                 </div>
-              </transition>
-              <transition>
-                <div id="profile-text-intro" v-show="visible2" @click="gotoName">
+                <div id="profile-text-intro" v-if="!visible" @click="changeProfile" key="intro">
                   <div class="cp_arrows_back">
                     <div class="cp_arrow_back cp_arrowfirst"></div>
                     <div class="cp_arrow_back cp_arrowsecond"></div>
@@ -38,7 +36,7 @@
           </div>
         </div>
       </div>
-    </parallax>
+    </div>
   </div>
 </template>
 
@@ -51,8 +49,7 @@ export default {
     return {
       backImage: profileHeader,
       faceImage: faceImage,
-      visible1: true,
-      visible2: false,
+      visible: true,
     }
   },
   computed: {
@@ -63,30 +60,8 @@ export default {
     },
   },
   methods: {
-    scrollProfile(e) {
-      console.log(e.target.scrollTop);
-      this.visible1Scroll(e.target.scrollTop);
-      this.visible2Scroll(e.target.scrollTop);
-    },
-    visible1Scroll(scrollY) {
-      if (!this.visible1) {
-        this.visible1 = scrollY < 150;
-      } else if (scrollY > 250) {
-        this.visible1 = !this.visible1;
-      }
-    },
-    visible2Scroll(scrollY) {
-      if (!this.visible2) {
-        this.visible2 = 650 < scrollY;
-      } else if (scrollY < 550) {
-        this.visible2 = !this.visible2;
-      }
-    },
-    gotoName() {
-      this.scrollProfile({target: {scrollTop: 0}});
-    },
-    gotoIntro() {
-      this.scrollProfile({target: {scrollTop: 750}});
+    changeProfile() {
+      this.visible = !this.visible;
     }
   }
 }
@@ -122,14 +97,12 @@ img.img-raised {
   z-index: 1;
 }
 #scroll-item {
-  height: 1000px;
   color: white;
 }
 #profile-text-name {
-  margin-top: 80px;
-  position: fixed;
-  top: 170px;
-  left: 600px;
+  margin-top: 50px;
+  margin-right: 200px;
+  position: relative;
   cursor: pointer;
   cursor: hand;
 }
@@ -140,9 +113,9 @@ img.img-raised {
   text-align: center;
 }
 #profile-text-intro {
-  position: fixed;
-  margin-top: 80px;
-  top: 10px;
+  position: relative;
+  /*margin-top: 80px;*/
+  top: -150px;
   cursor: pointer;
   cursor: hand;
 }
@@ -181,7 +154,7 @@ img.img-raised {
 }
 .cp_arrows .cp_arrow:before, .cp_arrows .cp_arrow:after {
   position: absolute;
-  top: 0;
+  top: -10px;
   left: 0;
   display: block;
   width: 35px;
@@ -257,7 +230,7 @@ img.img-raised {
 .cp_arrows_back .cp_arrow_back:before, .cp_arrows_back .cp_arrow_back:after {
   position: absolute;
   top: 60px;
-  left: -27px;
+  left: -60px;
   display: block;
   width: 35px;
   height: 6px;
@@ -307,7 +280,7 @@ img.img-raised {
 
 .v-enter-active,
 .v-leave-active {
-  transition: opacity 1s;
+  transition: opacity 0.5s;
 }
 
 .v-enter-to {
@@ -316,7 +289,7 @@ img.img-raised {
 
 .v-leave-to {
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
 }
 /* ヘッダーロゴ フェード処理ここまで */
 </style>

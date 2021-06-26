@@ -43,7 +43,7 @@ export default {
   data() {
     return {
       buttonContents: [
-          "About", "My Career", "Education", "Projects"
+          "Career", "Education", "Projects"
       ]
     }
   },
