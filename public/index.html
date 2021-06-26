@@ -8,13 +8,11 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script>
-      (() => {
-      	let redirect = sessionStorage.redirect;
-      	delete sessionStorage.redirect;
-	      if (redirect && redirect !== location.href) {
-		      history.replaceState(null, null, redirect);
-	      }
-      })();
+	    (function (l) {
+		    if (l.search) {
+			    window.history.replaceState(null, null, l.pathname.slice(0, -1)); // https://hoge.com/fooへ遷移
+		    }
+	    }(window.location));
     </script>
   </head>
   <body>

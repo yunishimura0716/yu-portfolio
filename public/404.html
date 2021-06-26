@@ -4,7 +4,12 @@
     <meta charset="utf-8" />
     <title>404 Redirect</title>
     <script>
-      sessionStorage.redirect = location.href;
+	    let secmentCount = 1; // [2018/2/2 Added]: 変数が抜けていると指摘がありましたので，追加しました．
+	    let l = window.location;
+	    let port = l.port ? ':' + l.port : ''
+	    l.replace(
+		    `${l.protocol}//${l.hostname}${port}/home`
+	    )
     </script>
     <meta http-equiv="refresh" content="0;URL='/yu-portfolio'"></meta>
   </head>

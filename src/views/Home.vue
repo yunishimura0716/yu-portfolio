@@ -16,22 +16,26 @@
             </a>
             <div id="profile-text" @scroll="scrollProfile">
               <div id="scroll-item">
-                <div id="profile-text-name" v-show="visible1" @click="gotoIntro">
-                  <h1>Yu Nishimura</h1>
-                  <h2 v-show="visible1">Who am I ...?</h2>
-                  <div class="cp_arrows">
-                    <div class="cp_arrow cp_arrowfirst"></div>
-                    <div class="cp_arrow cp_arrowsecond"></div>
+                <transition>
+                  <div id="profile-text-name" v-show="visible1" @click="gotoIntro">
+                    <h1>Yu Nishimura</h1>
+                    <h2 v-show="visible1">Who am I ...?</h2>
+                    <div class="cp_arrows">
+                      <div class="cp_arrow cp_arrowfirst"></div>
+                      <div class="cp_arrow cp_arrowsecond"></div>
+                    </div>
                   </div>
-                </div>
-                <div id="profile-text-intro" v-show="visible2" @click="gotoName">
-                  <div class="cp_arrows_back">
-                    <div class="cp_arrow_back cp_arrowfirst"></div>
-                    <div class="cp_arrow_back cp_arrowsecond"></div>
+                </transition>
+                <transition>
+                  <div id="profile-text-intro" v-show="visible2" @click="gotoName">
+                    <div class="cp_arrows_back">
+                      <div class="cp_arrow_back cp_arrowfirst"></div>
+                      <div class="cp_arrow_back cp_arrowsecond"></div>
+                    </div>
+                    <p>A Third-year Computer Science student at UBC.</p>
+                    <p>Interested in Software Engineering and Cloud Operation.</p>
                   </div>
-                  <p>A Third-year Computer Science student at UBC.</p>
-                  <p>Interested in Software Engineering and Cloud Operation.</p>
-                </div>
+                </transition>
               </div>
             </div>
           </div>
@@ -145,6 +149,7 @@ img.img-raised {
 #profile-text-intro {
   position: fixed;
   margin-top: 80px;
+  top: 10px;
   cursor: pointer;
   cursor: hand;
 }
@@ -186,20 +191,20 @@ img.img-raised {
   top: 0;
   left: 0;
   display: block;
-  width: 30px;
-  height: 3px;
+  width: 35px;
+  height: 6px;
   content: '';
   background: white;
 }
 .cp_arrows .cp_arrow:before {
-  -webkit-transform: rotate(30deg) translateX(-39%);
-  transform: rotate(30deg) translateX(-39%);
+  -webkit-transform: rotate(30deg) translateX(-34%);
+  transform: rotate(30deg) translateX(-34%);
   -webkit-transform-origin: top left;
   transform-origin: top left;
 }
 .cp_arrows .cp_arrow:after {
-  -webkit-transform: rotate(-30deg) translateX(39%);
-  transform: rotate(-30deg) translateX(39%);
+  -webkit-transform: rotate(-30deg) translateX(34%);
+  transform: rotate(-30deg) translateX(34%);
   -webkit-transform-origin: top right;
   transform-origin: top right;
 }
@@ -249,36 +254,36 @@ img.img-raised {
   opacity: 0;
 }
 .cp_arrows_back .cp_arrowfirst {
-  -webkit-animation: arrow-move08 2s ease-in-out infinite;
-  animation: arrow-move08 2s ease-in-out infinite;
+  -webkit-animation: arrow-back-move08 2s ease-in-out infinite;
+  animation: arrow-back-move08 2s ease-in-out infinite;
 }
 .cp_arrows_back .cp_arrowsecond {
-  -webkit-animation: arrow-move08 2s 1s ease-in-out infinite;
-  animation: arrow-move08 2s 1s ease-in-out infinite;
+  -webkit-animation: arrow-back-move08 2s 1s ease-in-out infinite;
+  animation: arrow-back-move08 2s 1s ease-in-out infinite;
 }
 .cp_arrows_back .cp_arrow_back:before, .cp_arrows_back .cp_arrow_back:after {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 60px;
+  left: -27px;
   display: block;
-  width: 30px;
-  height: 3px;
+  width: 35px;
+  height: 6px;
   content: '';
   background: white;
 }
 .cp_arrows_back .cp_arrow_back:before {
-  -webkit-transform: rotate(-30deg) translateX(-39%);
-  transform: rotate(-30deg) translateX(-39%);
+  -webkit-transform: rotate(-30deg) translateX(-42%);
+  transform: rotate(-30deg) translateX(-42%);
   -webkit-transform-origin: top left;
   transform-origin: top left;
 }
 .cp_arrows_back .cp_arrow_back:after {
-  -webkit-transform: rotate(30deg) translateX(39%);
-  transform: rotate(30deg) translateX(39%);
+  -webkit-transform: rotate(30deg) translateX(42%);
+  transform: rotate(30deg) translateX(42%);
   -webkit-transform-origin: top right;
   transform-origin: top right;
 }
-@-webkit-keyframes arrow-move08 {
+@-webkit-keyframes arrow-back-move08 {
   0% {
     opacity: 0;
   }
@@ -290,7 +295,7 @@ img.img-raised {
     opacity: 0;
   }
 }
-@keyframes arrow-move08 {
+@keyframes arrow-back-move08 {
   0% {
     opacity: 0;
   }
@@ -302,4 +307,23 @@ img.img-raised {
     opacity: 0;
   }
 }
+/* ヘッダーロゴ フェード処理ここから */
+.v-enter {
+  opacity: 0;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 1s;
+}
+
+.v-enter-to {
+  opacity: 1;
+}
+
+.v-leave-to {
+  opacity: 0;
+  transition: opacity 1s;
+}
+/* ヘッダーロゴ フェード処理ここまで */
 </style>
