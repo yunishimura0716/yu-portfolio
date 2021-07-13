@@ -1,7 +1,7 @@
 <template>
   <md-toolbar
     id="toolbar"
-    class="md-medium md-absolute"
+    class="md-dense md-absolute"
     md-elevation="3"
   >
     <h3

@@ -5,7 +5,7 @@
     <div id="education">
       <div id="title">
         <h2 class="title">Education</h2>
-        <span class="md-icon" style="{ color: navy;}">school</span>
+        <md-icon>school</md-icon>
       </div>
       <main id="app">
         <h3>Education History</h3>
@@ -55,11 +55,18 @@ export default {
           "end":"2020 / 04"
         },
         {
-          "school":"Langara College",
-          "program":"Associate of Science, Science General",
-          "grade":"GPA: 4.33 / 4.33",
-          "start":"2019 / 09",
-          "end":"2019 / 12"
+          "school": "Langara College",
+          "program": "Associate of Science, Science General",
+          "grade": "GPA: 4.33 / 4.33",
+          "start": "2019 / 09",
+          "end": "2019 / 12"
+        },
+        {
+          "school":"Nagoya University",
+          "program":"Bachelor of Applied Science, Physical Engineering",
+          "grade":"GPA: 4.20 / 4.30",
+          "start":"2017 / 04",
+          "end":"2019 / 03"
         }
       ]
     }
@@ -72,7 +79,7 @@ export default {
   text-align: center;
 }
 .md-icon {
-  color: navy;
+  color: navy !important;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
