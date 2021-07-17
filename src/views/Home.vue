@@ -2,71 +2,69 @@
   <div id="home">
     <ToolBar />
     <Profile />
-    <div id="education">
-      <div id="title">
-        <h2 class="title">Education</h2>
-        <md-icon>school</md-icon>
+    <div id="works">
+      <h2 class="subtitle">Works</h2>
+      <div class="works-list">
+        <md-card v-for="work in worksList" :key="work.img">
+          <md-card-media-cover md-solid>
+            <md-card-media md-ratio="4:3">
+              <img :src='work.img' alt="Skyscraper">
+            </md-card-media>
+
+            <md-card-area>
+              <md-card-header>
+                <span class="md-title">{{ work.title }}</span>
+                <span class="md-subhead">4/3 image</span>
+              </md-card-header>
+            </md-card-area>
+          </md-card-media-cover>
+        </md-card>
       </div>
-      <main id="app">
-        <h3>Education History</h3>
-        <section class="timeline">
-          <ul>
-            <li v-for="(info, index) in timeline_data" v-bind:key="index">
-              <span></span>
-              <div>{{ info.school }}</div>
-              <div>{{ info.program }}</div>
-              <div>{{ info.grade }}</div>
-              <div class="year">
-                <span>{{ info.end }}</span>
-                <span>{{ info.start }}</span>
-              </div>
-            </li>
-          </ul>
-        </section>
-      </main>
     </div>
+    <Education />
   </div>
 </template>
 
 <script>
 import ToolBar from '../components/ToolBar.vue';
 import Profile from '../components/Profile.vue';
+import Education from '../components/Education.vue';
+import n2i from '../assets/img/n2i_logo.png';
+import next from '../assets/img/next_logo.png';
+import plaid from '../assets/img/plaid_logo.jpeg';
 
 export default {
   components: {
     ToolBar,
     Profile,
+    Education,
   },
   data() {
     return {
-      timeline_data: [
+      worksList: [
         {
-          "school":"The University of British Columbia",
-          "program":"Bachelor of Science, Computer Science",
-          "grade":"Grade: 93%",
-          "start":"2020 / 05",
-          "end":"current"
+          title: 'Machine Learning Engineer',
+          img: n2i,
+          type: '',
+          period: '',
+          place: '',
+          description: '',
         },
         {
-          "school":"Simon Fraser University",
-          "program":"Bachelor of Science, Data Science",
-          "grade":"GPA: 4.33 / 4.33",
-          "start":"2020 / 01",
-          "end":"2020 / 04"
+          title: 'Software Engineer',
+          img: next,
+          type: '',
+          period: '',
+          place: '',
+          description: '',
         },
         {
-          "school": "Langara College",
-          "program": "Associate of Science, Science General",
-          "grade": "GPA: 4.33 / 4.33",
-          "start": "2019 / 09",
-          "end": "2019 / 12"
-        },
-        {
-          "school":"Nagoya University",
-          "program":"Bachelor of Applied Science, Physical Engineering",
-          "grade":"GPA: 4.20 / 4.30",
-          "start":"2017 / 04",
-          "end":"2019 / 03"
+          title: 'Software Engineer',
+          img: plaid,
+          type: '',
+          period: '',
+          place: '',
+          description: '',
         }
       ]
     }
@@ -75,111 +73,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#title {
-  text-align: center;
+.works-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -40px;
 }
-.md-icon {
-  color: navy !important;
+.md-card {
+  width: 320px;
+  margin: 4px;
+  display: inline-block;
+  vertical-align: top;
 }
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-$font-stack: 'Montserrat', sans-serif;
-$font-color: #fff;
-$bg-color: #fff;
-$dark-blue: #2E4A62;
-$light-blue: #4e9bfa;
-
-@mixin clearfix {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
+.md-card .md-card-header {
+  background-color: transparent;
+  margin: 0px 0px 0px 15px;
+  box-shadow: 0 0 0 0;
 }
-@mixin set-border($thickness, $color, $radius) {
-  border: $thickness solid $color;
-  border-radius: $radius;
-}
-
-body {
-  background-color: $bg-color;
-}
-*, *::before, *::after {
-  margin: 0; padding: 0;
-  box-sizing: border-box;
-  font-family: $font-stack;
-  color: $font-color;
-}
-main {
-  width: 60em;
-  height: 100%;
-  margin: 1em auto;
-  padding: 40px;
-  background: $dark-blue;
-  border-radius: 4px;
-  box-shadow: 0 5px 15px rgba(0,0,0,.5);
-}
-.timeline {
-  padding: 5px 100px;
-  ul {
-    position: relative;
-    &::before {
-      @include clearfix();
-      height: 100%;
-    }
-  }
-  li {
-    position: relative;
-    margin: 60px 35px;
-    width: 100%;
-    list-style: none;
-    line-height: 25px;
-    &>span {
-      @include clearfix();
-      left: -25px;
-      height: 110%;
-      @include set-border(2px, $font-color, none);
-    }
-    &>span::before, &>span::after {
-      @include clearfix();
-      width: 14px; height: 14px;
-      @include set-border(3px, $font-color, 50%);
-      left: -7px;
-      background: $light-blue;
-    }
-    &>span::before {
-      top: -15px;
-    }
-    &>span::after {
-      top: 100%;
-    }
-    div {
-      &:nth-child(2) {
-        font-size: 1.2em;
-        margin: 10px 80px;
-      }
-      &:nth-child(3), &:nth-child(4) {
-        font-size: 1em;
-        font-style: italic;
-        color: darken($font-color, 25%);
-        margin: 10px 100px;
-      }
-    }
-    .year span {
-      position: absolute;
-      font-size: 1em;
-      left: -110px;
-      width: 40px;
-      text-align: right;
-      &:first-child {
-        top: -20px;
-        text-align: left;
-        width: 100px;
-      }
-      &:last-child {
-        top: 100%;
-        text-align: left;
-        width: 100px;
-      }
-    }
-  }
+.md-card-area {
+  background: rgba(0, 0, 0, 0.8) !important;
 }
 </style>

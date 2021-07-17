@@ -1,8 +1,9 @@
 <template>
   <md-toolbar
     id="toolbar"
-    class="md-dense md-absolute"
-    md-elevation="3"
+    class="md-absolute"
+    md-elevation="0"
+    v-bind:class="{active: activeFlag}"
   >
     <h3
       class="md-title"
@@ -44,12 +45,16 @@ export default {
     return {
       buttonContents: [
           "Career", "Education", "Projects"
-      ]
+      ],
+      activeFlag: false,
     }
   },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
   methods: {
-    buttonClass(idx) {
-      return "toolbar-button" + (idx + 1);
+    handleScroll() {
+      this.activeFlag = window.scrollY > 50;
     }
   }
 }
@@ -60,6 +65,10 @@ export default {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   background-color: rgba(0,0,255,0.5) !important;
+  height: 60px !important;
+}
+#toolbar.active {
+  background-color: transparent !important;
 }
 #toolbar > h3 {
   text-align: center;
