@@ -68,6 +68,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.page-header {
+  background-attachment: fixed;
+}
 img.img-raised {
   border-radius: 50% !important;
   object-fit: cover;

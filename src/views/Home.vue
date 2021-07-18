@@ -13,14 +13,15 @@
 
             <md-card-area>
               <md-card-header>
-                <span class="md-title">{{ work.title }}</span>
-                <span class="md-subhead">4/3 image</span>
+                <span class="md-title">{{ work.title }} @ {{ work.company }}</span>
+                <span class="md-subhead">{{ work.type }}, {{ work.period }}</span>
               </md-card-header>
             </md-card-area>
           </md-card-media-cover>
         </md-card>
       </div>
     </div>
+    <div id="backimg2"></div>
     <Education />
   </div>
 </template>
@@ -44,25 +45,28 @@ export default {
       worksList: [
         {
           title: 'Machine Learning Engineer',
+          company: 'N2i, Inc.',
           img: n2i,
-          type: '',
-          period: '',
+          type: 'Part-time',
+          period: '2018/04 - 2018/10',
           place: '',
           description: '',
         },
         {
           title: 'Software Engineer',
+          company: 'NEXT, Inc.',
           img: next,
-          type: '',
-          period: '',
+          type: 'Part-time',
+          period: '2020/07 - 2020/12',
           place: '',
           description: '',
         },
         {
           title: 'Software Engineer',
+          company: 'PLAID, Inc.',
           img: plaid,
-          type: '',
-          period: '',
+          type: 'Internship',
+          period: '2021/05 - 2021/08',
           place: '',
           description: '',
         }
@@ -73,14 +77,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.subtitle {
+  text-align: center;
+}
 .works-list {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: -40px;
+  margin-bottom: 40px;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 .md-card {
-  width: 320px;
-  margin: 4px;
+  width: 400px;
+  margin: 25px;
   display: inline-block;
   vertical-align: top;
 }
@@ -91,5 +100,16 @@ export default {
 }
 .md-card-area {
   background: rgba(0, 0, 0, 0.8) !important;
+}
+.md-card .md-title {
+  font-size: 22px;
+}
+#backimg2 {
+  background-image: url("../assets/img/backimg2.jpg");
+  width: 100%;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 </style>

@@ -66,6 +66,7 @@ export default {
   grid-template-columns: repeat(12, 1fr);
   background-color: rgba(0,0,255,0.5) !important;
   height: 60px !important;
+  box-shadow: 0 0 0 0;
 }
 #toolbar.active {
   background-color: transparent !important;
