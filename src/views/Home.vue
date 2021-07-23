@@ -5,20 +5,28 @@
     <div id="works">
       <h2 class="subtitle">Works</h2>
       <div class="works-list">
-        <md-card v-for="work in worksList" :key="work.img">
-          <md-card-media-cover md-solid>
-            <md-card-media md-ratio="4:3">
-              <img :src='work.img' alt="Skyscraper">
-            </md-card-media>
+        <md-card v-for="(work) in worksList" :key="work.img">
+          <div @click="openModal(work)">
+            <md-card-media-cover md-solid>
+              <md-card-media md-ratio="4:3">
+                <img :src='work.img' alt="Skyscraper">
+              </md-card-media>
 
-            <md-card-area>
-              <md-card-header>
-                <span class="md-title">{{ work.title }} @ {{ work.company }}</span>
-                <span class="md-subhead">{{ work.type }}, {{ work.period }}</span>
-              </md-card-header>
-            </md-card-area>
-          </md-card-media-cover>
+              <md-card-area>
+                <md-card-header>
+                  <span class="md-title">{{ work.title }} @ {{ work.company }}</span>
+                  <span class="md-subhead">{{ work.type }}, {{ work.period }}</span>
+                </md-card-header>
+              </md-card-area>
+            </md-card-media-cover>
+          </div>
         </md-card>
+        <!--          component WorkModal-->
+        <WorkModal
+          @close="closeModal"
+          v-if="modal"
+          :work="workData"
+        />
       </div>
     </div>
     <div id="backimg2"></div>
@@ -30,6 +38,7 @@
 import ToolBar from '../components/ToolBar.vue';
 import Profile from '../components/Profile.vue';
 import Education from '../components/Education.vue';
+import WorkModal from "../components/WorkModal.vue";
 import n2i from '../assets/img/n2i_logo.png';
 import next from '../assets/img/next_logo.png';
 import plaid from '../assets/img/plaid_logo.jpeg';
@@ -39,6 +48,7 @@ export default {
     ToolBar,
     Profile,
     Education,
+    WorkModal,
   },
   data() {
     return {
@@ -70,8 +80,20 @@ export default {
           place: '',
           description: '',
         }
-      ]
+      ],
+      modal: false,
+      workData: null,
     }
+  },
+  methods: {
+    openModal(work) {
+      console.log('hello')
+      this.modal = true;
+      this.workData = work;
+    },
+    closeModal() {
+      this.modal = false
+    },
   }
 }
 </script>
@@ -92,6 +114,7 @@ export default {
   margin: 25px;
   display: inline-block;
   vertical-align: top;
+  cursor: pointer;
 }
 .md-card .md-card-header {
   background-color: transparent;
