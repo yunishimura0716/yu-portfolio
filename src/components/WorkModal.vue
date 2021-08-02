@@ -2,16 +2,18 @@
   <transition name="modal" appear>
     <div class="modal modal-overlay" @click.self="$emit('close')">
       <div class="modal-window">
-        <h2 class="work-title">Title</h2>
         <div class="work-img">
-          <img>
+          <img :src="work.img">
         </div>
+        <h2 class="work-title">{{ work.title }} @ {{ work.company }}</h2>
         <div class="work-body">
           <div class="work-description">
-            Test Test Test Test
+            {{ work.description }}
           </div>
-          <h3>URL</h3>
-          <button @click="$emit('close')">Close</button>
+          <div class="work-footer">
+            <a class="work-url" :href="work.url" target="_blank">URL</a>
+            <button @click="$emit('close')">Close</button>
+          </div>
         </div>
       </div>
     </div>
@@ -48,7 +50,47 @@ export default {
     background: #fff;
     border-radius: 4px;
     overflow: hidden;
+    width: 700px;
+    position: absolute;
+    top: 60px;
   }
+}
+
+.work-img {
+  text-align: center;
+  margin-top: 60px;
+}
+
+img {
+  width: 146px;
+  height: 87px;
+}
+
+.work-title {
+  text-align: center;
+  margin: 0 0 0 0;
+}
+
+.work-description {
+  margin: 10px 25px 0 25px;
+  white-space: pre-line;
+}
+
+.work-url {
+  font-size: 20px;
+  margin: 20px 30px 20px 30px;
+}
+
+.work-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  color: white;
+  background-color: black;
+  font-size: 20px;
+  margin: 10px 30px 10px 30px;
 }
 
 // overlay transition
