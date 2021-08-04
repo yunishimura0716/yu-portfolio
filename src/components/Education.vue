@@ -2,7 +2,7 @@
   <div id="education">
     <div id="subtitle">
       <h2 class="subtitle">Education</h2>
-      <md-icon>school</md-icon>
+      <img :src="school" class="icon-school">
     </div>
     <main id="app">
       <h3>Education History</h3>
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import school from '../assets/img/outline_school_black_24dp.png';
+
 export default {
   data() {
     return {
@@ -57,7 +59,8 @@ export default {
           "start":"2017 / 04",
           "end":"2019 / 03"
         }
-      ]
+      ],
+      school,
     }
   }
 }
@@ -74,11 +77,6 @@ export default {
   grid-column: 8;
   margin-top: 30px;
   margin-bottom: 10px;
-}
-.md-icon {
-  color: navy !important;
-  margin-top: 48px;
-  margin-left: 15px;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
@@ -180,5 +178,9 @@ main {
       }
     }
   }
+}
+
+.icon-school {
+  margin: 50px 5px 5px 20px;
 }
 </style>

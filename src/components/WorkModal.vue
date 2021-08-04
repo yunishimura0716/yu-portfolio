@@ -63,7 +63,7 @@ export default {
 
 img {
   width: 146px;
-  height: 87px;
+  height: 146px !important;
 }
 
 .work-title {

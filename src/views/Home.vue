@@ -31,6 +31,7 @@
     </div>
     <div id="backimg2"></div>
     <Education />
+    <Footer />
   </div>
 </template>
 
@@ -39,6 +40,7 @@ import ToolBar from '../components/ToolBar.vue';
 import Profile from '../components/Profile.vue';
 import Education from '../components/Education.vue';
 import WorkModal from "../components/WorkModal.vue";
+import Footer from "../components/Footer.vue";
 import n2i from '../assets/img/n2i_logo.png';
 import next from '../assets/img/next_logo.png';
 import plaid from '../assets/img/plaid_logo.jpeg';
@@ -49,6 +51,7 @@ export default {
     Profile,
     Education,
     WorkModal,
+    Footer,
   },
   data() {
     return {
