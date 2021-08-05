@@ -91,6 +91,8 @@ button {
   background-color: black;
   font-size: 20px;
   margin: 10px 30px 10px 30px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 // overlay transition
