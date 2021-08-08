@@ -1,6 +1,9 @@
 <template>
   <div id="works">
-    <h2 class="subtitle">Works</h2>
+    <div class="subtitle">
+      <h2 class="subtitle-text">Works</h2>
+      <i class="fas fa-building fa-lg"></i>
+    </div>
     <div class="works-list">
       <md-card v-for="(work) in worksList" :key="work.img">
         <div @click="openModal(work)">
@@ -107,9 +110,21 @@ export default {
 
 <style lang="scss" scoped>
 .subtitle {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+}
+
+.subtitle-text {
   text-align: center;
   color: black;
+  grid-column: 7;
 }
+
+.subtitle > i {
+  text-align: left;
+  margin: 40px 5px 5px 5px;
+}
+
 .works-list {
   display: flex;
   flex-wrap: wrap;
