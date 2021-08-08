@@ -15,6 +15,7 @@
         finalOpacity: 0.1,
         cancellationPeriod: 75
       }"
+      @click="moveTo(0)"
     >
       Yu Portfolio
     </h3>
@@ -22,7 +23,7 @@
       <div class="md-collapse-wrapper">
         <md-list-item
           v-for="(content) in buttonContents"
-          :key="content"
+          :key="content.title"
           v-wave="{
             color: 'currentColor',
             easing: 'ease-out',
@@ -31,7 +32,8 @@
             finalOpacity: 0.1,
             cancellationPeriod: 75
           }"
-        >{{ content }}
+          @click.prevent="moveTo(content.positionY)"
+        >{{ content.title }}
         </md-list-item>
       </div>
     </div>
@@ -44,7 +46,9 @@ export default {
   data() {
     return {
       buttonContents: [
-          "Career", "Education", "Projects"
+        { title: "Works", positionY: 600 },
+        { title: "Projects", positionY: 1050 },
+        { title: "Education", positionY: 2250 },
       ],
       activeFlag: false,
     }
@@ -54,7 +58,11 @@ export default {
   },
   methods: {
     handleScroll() {
+      // console.log(window.scrollY);
       this.activeFlag = window.scrollY > 50;
+    },
+    moveTo(positionY) {
+      window.scrollTo(window.scrollX, positionY);
     }
   }
 }

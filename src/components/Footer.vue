@@ -40,6 +40,7 @@
 export default {
   data: () => ({
     icons: [
+      { name: 'mdi-email', link: 'mailto:ynjpprof@gmail.com' },
       { name: 'mdi-facebook', link: 'https://www.facebook.com/profile.php?id=100025156084045' },
       { name: 'mdi-twitter', link: 'https://twitter.com/yunishi_jp' },
       { name: 'mdi-linkedin', link: 'https://www.linkedin.com/in/yu-nishimura-489b351b2/' },
