@@ -48,7 +48,8 @@ export default {
       buttonContents: [
         { title: "Works", positionY: 600 },
         { title: "Projects", positionY: 1050 },
-        { title: "Education", positionY: 2250 },
+        { title: "Education", positionY: 2600 },
+        { title: "Contact", positionY: 3192 },
       ],
       activeFlag: false,
     }
@@ -58,11 +59,14 @@ export default {
   },
   methods: {
     handleScroll() {
-      // console.log(window.scrollY);
+      console.log(window.scrollY);
       this.activeFlag = window.scrollY > 50;
     },
     moveTo(positionY) {
-      window.scrollTo(window.scrollX, positionY);
+      window.scrollTo({
+        top: positionY,
+        behavior: 'smooth',
+      });
     }
   }
 }

@@ -2,7 +2,7 @@
   <div id="works">
     <div class="subtitle">
       <h2 class="subtitle-text">Works</h2>
-      <i class="fas fa-building fa-lg"></i>
+      <i class="fas fa-business-time fa-lg"></i>
     </div>
     <div class="works-list">
       <md-card v-for="(work) in worksList" :key="work.img">
