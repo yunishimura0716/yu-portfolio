@@ -87,8 +87,8 @@ export default {
               'Here is the things what I did at PLAID.\n' +
               '　- Could have a experience of software development for SaaS product.\n' +
               '　- Experienced Full-stack web development using Typescript, Vue.js and Node.js for frontend and backend.\n' +
-              '　- Experienced Infrastructure as code (IaC) with Terraform.\n' +
-              '　- Be familiar with Kubernetes, Google Cloud Build and ArgoCD to build CI/CD pipeline and GitOps.\n' +
+              '　- Connected Secret Variables and Service Accounts to Kubernetes resources on the project with Terraform (IaC)\n' +
+              '　- Created Post-jobs to run End-to-End test program by writing the manifest of Kubernetes and built in the CD pipeline of ArgoCD\n' +
               '　- Got used to work with Cloud Services such as SES and S3 for AWS and GKE, BigQuery, Spanner, PubSub for GCP.',
         }
       ],
