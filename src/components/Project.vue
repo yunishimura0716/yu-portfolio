@@ -53,12 +53,24 @@
 import promopal from "../assets/img/promopal.gif";
 import shooting from "../assets/img/ShootingSphere.png";
 import hallFame from "../assets/img/hall_of_fame.png";
+import combatFood from "../assets/img/combat_food.png";
 
 export default {
   name: "Project.vue",
   data() {
     return {
       projectList: [
+        {
+          title: 'Combat Food',
+          text: 'Mobile app project for nwHacks, Western Canada’s largest hackathon. This app is a matching platform between individuals who want to eat a cheap food and restaurant that want to reduce their left-over.',
+          img: combatFood,
+          src: "https://github.com/sawamotokai/combat-food",
+          stacks: [
+            { name: 'Flutter', class: 'fa-brands fa-uikit' },
+            { name: 'Node.js', class: 'fab fa-node fa-lg'},
+            { name: 'Firebase', class: 'fas fa-server fa-lg'},
+          ]
+        },
         {
           title: 'PromoPal',
           text: 'Finding the best restaurant promotions and deals while supporting local 🍔',

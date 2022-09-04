@@ -3,7 +3,7 @@
     <ToolBar />
     <Profile />
     <Work />
-    <v-divider class="mx-4"></v-divider>
+    <v-divider class="mx-4" />
     <Project />
     <div id="backimg2" />
     <Education />

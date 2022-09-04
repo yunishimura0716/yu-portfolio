@@ -52,6 +52,8 @@ export default {
     overflow: hidden;
     width: 700px;
     position: absolute;
+    max-height: 550px;
+    overflow: scroll;
     top: 60px;
   }
 }
@@ -62,8 +64,6 @@ export default {
 }
 
 img {
-  width: 146px;
-  height: 146px !important;
 }
 
 .work-title {

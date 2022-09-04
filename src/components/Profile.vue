@@ -28,8 +28,8 @@
                     <div class="cp_arrow_back cp_arrowfirst"></div>
                     <div class="cp_arrow_back cp_arrowsecond"></div>
                   </div>
-                  <p>A Third-year Computer Science student at UBC.</p>
-                  <p>Interested in Software Engineering and Cloud Operation.</p>
+                  <p>A 4th year Computer Science student at UBC.</p>
+                  <p>Interested in Software Engineering and Full-stack web development.</p>
                 </div>
               </transition>
             </div>
